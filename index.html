@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Floor to Playlist</title>
+<style>
+  :root{color-scheme:dark;font-family:system-ui,sans-serif;background:#101310;color:#f4f7ed}*{box-sizing:border-box}body{margin:0}main{max-width:850px;margin:auto;padding:48px 24px}header{display:flex;justify-content:space-between;align-items:center;gap:20px}.tag{color:#b6ec75;text-transform:uppercase;letter-spacing:.16em;font-size:12px}h1{font-size:clamp(38px,7vw,66px);line-height:1.05;letter-spacing:-.05em;margin:25px 0}h2{font-size:20px}p{color:#b8c0b2;line-height:1.65}section{background:#1b211b;border:1px solid #343e31;border-radius:20px;padding:24px;margin:22px 0}label{display:block;font-weight:600;margin-bottom:10px}input,textarea{width:100%;background:#111711;border:1px solid #53604b;border-radius:10px;color:inherit;padding:14px;font:inherit}textarea{min-height:210px;resize:vertical}button,.button{display:inline-block;border:0;border-radius:999px;padding:13px 20px;background:#b6ec75;color:#122000;text-decoration:none;font:600 14px system-ui;cursor:pointer;margin-top:14px}button:disabled{opacity:.5;cursor:wait}a{color:#c2f58a}header .button{background:#293725;color:#dcf3c5;margin:0}#status{position:sticky;bottom:12px;background:#263321;border-radius:12px;padding:16px;white-space:pre-wrap}#status:empty{display:none}.error{color:#ffb7a4}li{padding:7px 0;line-height:1.4}small{color:#b8c0b2}.success{font-size:19px}ol{padding-left:24px}.hidden{display:none}
+
+
+details{margin-top:24px;border-top:1px solid #343e31;padding-top:18px}summary{cursor:pointer;color:#b8c0b2;font-weight:600}.secondary{background:#293725;color:#dcf3c5}#prompt{min-height:260px;font-size:14px;line-height:1.6}#copyNotice{display:block;margin-top:10px;color:#c2f58a}.steps{padding-left:22px}
+
+header{flex-wrap:wrap}.controls{display:flex;align-items:center;gap:14px;flex-wrap:wrap}.controls label{font-size:12px;margin:0}.controls select{background:#293725;color:#f4f7ed;border:1px solid #53604b;border-radius:8px;padding:10px;font:inherit}h1{max-width:700px}footer{font-size:12px;color:#b8c0b2;line-height:1.6}button:focus-visible,a:focus-visible,select:focus-visible{outline:3px solid #b6ec75;outline-offset:4px}@media(max-width:520px){main{padding:24px 16px}section{padding:18px}.controls{width:100%;justify-content:space-between}}
+</style></head><body>
+<main>
+<header><span class="tag" data-i18n="tag"></span><div class="controls"><label><span data-i18n="language"></span> <select id="language"><option value="en">English</option><option value="fr">Français</option><option value="it">Italiano</option><option value="es">Español</option><option value="de">Deutsch</option></select></label><a class="button" href="/login" id="connect"></a></div></header>
+<h1 data-i18n="title"></h1><p data-i18n="intro"></p>
+<section>
+<h2 data-i18n="step1"></h2><label for="event" data-i18n="eventLabel"></label><input id="event" data-placeholder="eventPlaceholder" maxlength="1500">
+<h3 data-i18n="chatTitle"></h3><p data-i18n="chatIntro"></p>
+<ol class="steps"><li data-i18n="instruction1"></li><li data-i18n="instruction2"></li><li data-i18n="instruction3"></li></ol>
+<label for="prompt" data-i18n="promptLabel"></label><textarea id="prompt" readonly aria-describedby="copyNotice"></textarea>
+<button id="copyPrompt" data-i18n="copy"></button> <a class="button secondary" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" data-i18n="openChat"></a>
+<small id="copyNotice" role="status" aria-live="polite"></small>
+<details><summary data-i18n="alternative"></summary><p data-i18n="apiIntro"></p><p id="apiSetup"></p><button id="discover" class="secondary" data-i18n="discover"></button><div id="research"></div></details>
+<p><small data-i18n="verify"></small></p>
+</section>
+<section>
+<h2 data-i18n="step2"></h2><p data-i18n="pasteIntro"></p><label for="artists" data-i18n="artistsLabel"></label><textarea id="artists" data-placeholder="artistsPlaceholder"></textarea><p><small data-i18n="artistHint"></small></p><button id="preview" data-i18n="preview"></button>
+</section>
+<section id="trackSection" class="hidden"><h2 data-i18n="step3"></h2><p id="count"></p><div id="warnings"></div><ol id="tracks"></ol><button id="create" data-i18n="create" disabled></button><p id="result" class="success"></p></section>
+<footer data-i18n="privacy"></footer><div id="status" role="status" aria-live="polite"></div>
+<noscript>JavaScript is required / JavaScript erforderlich / JavaScript requis / JavaScript necessario / Se requiere JavaScript.</noscript>
+</main><script type="module" src="/app.mjs"></script></body></html>
